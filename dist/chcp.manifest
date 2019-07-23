@@ -8,7 +8,7 @@
     "hash": "9853384126c6926028d50561b2d4a7c1"
   },
   {
-    "file": "css/chunk-vendors.7e6e1dc5.css",
+    "file": "css/chunk-vendors.12620b7d.css",
     "hash": "01bd3e5ba8d04924eb24dcbbc3ac26be"
   },
   {
@@ -29,18 +29,18 @@
   },
   {
     "file": "index.html",
-    "hash": "de6b5090b13cc60f87cdfdeda41297a0"
+    "hash": "ba34d65ddb99f105d85b4a069a624165"
   },
   {
-    "file": "js/about.1c76b9ba.js",
-    "hash": "08029829cd1846f0b1054b5eba47f077"
+    "file": "js/about.4ed68e61.js",
+    "hash": "e54a8bbd9422ca16b2bb3063abf4e321"
   },
   {
-    "file": "js/app.0f70916f.js",
-    "hash": "b79784c4cc0dea439a864dfd3dc219c5"
+    "file": "js/app.107ff723.js",
+    "hash": "a0ea061a121825d7f2ef6b747415ad4e"
   },
   {
-    "file": "js/chunk-vendors.8ddedd30.js",
-    "hash": "a756eaa89e485b4d58855bc2868ecddb"
+    "file": "js/chunk-vendors.59bb7f6e.js",
+    "hash": "398fddd191ff9793cb87e6bfdffefe4e"
   }
 ]
