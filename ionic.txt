@@ -1,4 +1,4 @@
-//安装打包                                          
+//安装打包    1111                                      
 $ npm install -g cordova ionic
 $ ionic start myApp tabs              
 $ cd myApp
