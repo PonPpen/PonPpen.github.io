@@ -1,0 +1,46 @@
+[
+  {
+    "file": "css/about.6f68d6ec.css",
+    "hash": "c1aae19f427e871dc30653346752189c"
+  },
+  {
+    "file": "css/app.36f7dfcf.css",
+    "hash": "9853384126c6926028d50561b2d4a7c1"
+  },
+  {
+    "file": "css/chunk-vendors.7e6e1dc5.css",
+    "hash": "01bd3e5ba8d04924eb24dcbbc3ac26be"
+  },
+  {
+    "file": "favicon.ico",
+    "hash": "1ba2ae710d927f13d483fd5d1e548c9b"
+  },
+  {
+    "file": "fonts/cubeic.c60c4d39.woff",
+    "hash": "c60c4d39f83feebe9d441d487e67336e"
+  },
+  {
+    "file": "fonts/cubeic.dcc2b6f1.ttf",
+    "hash": "dcc2b6f1e42abe71bc9f1a83f85f47d4"
+  },
+  {
+    "file": "img/logo.82b9c7a5.png",
+    "hash": "82b9c7a5a3f405032b1db71a25f67021"
+  },
+  {
+    "file": "index.html",
+    "hash": "de6b5090b13cc60f87cdfdeda41297a0"
+  },
+  {
+    "file": "js/about.1c76b9ba.js",
+    "hash": "08029829cd1846f0b1054b5eba47f077"
+  },
+  {
+    "file": "js/app.0f70916f.js",
+    "hash": "b79784c4cc0dea439a864dfd3dc219c5"
+  },
+  {
+    "file": "js/chunk-vendors.8ddedd30.js",
+    "hash": "a756eaa89e485b4d58855bc2868ecddb"
+  }
+]
