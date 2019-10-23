@@ -1,27 +1,15 @@
 [
   {
-    "file": "css/about.6f68d6ec.css",
-    "hash": "c1aae19f427e871dc30653346752189c"
+    "file": "css/app.d03515ce.css",
+    "hash": "25a5f0c7cd2add5a40b425807d28de70"
   },
   {
-    "file": "css/app.36f7dfcf.css",
-    "hash": "9853384126c6926028d50561b2d4a7c1"
-  },
-  {
-    "file": "css/chunk-vendors.7e6e1dc5.css",
-    "hash": "01bd3e5ba8d04924eb24dcbbc3ac26be"
+    "file": "css/chunk-vendors.14aaf9bb.css",
+    "hash": "ba611d9a0fea678b8c727215628c32c0"
   },
   {
     "file": "favicon.ico",
     "hash": "1ba2ae710d927f13d483fd5d1e548c9b"
-  },
-  {
-    "file": "fonts/cubeic.c60c4d39.woff",
-    "hash": "c60c4d39f83feebe9d441d487e67336e"
-  },
-  {
-    "file": "fonts/cubeic.dcc2b6f1.ttf",
-    "hash": "dcc2b6f1e42abe71bc9f1a83f85f47d4"
   },
   {
     "file": "img/logo.82b9c7a5.png",
@@ -29,18 +17,26 @@
   },
   {
     "file": "index.html",
-    "hash": "fc3c41f9e823dc0e673f275a6e8b16b8"
+    "hash": "2b999146c9c6ba4e27c1b5df1cbfdc01"
   },
   {
-    "file": "js/about.9c73135d.js",
-    "hash": "138ac64c4c990c8b0082ae0598fdb60a"
+    "file": "js/about.cf8cfecb.js",
+    "hash": "7a4691a1175de408be16ada7d58c1d2d"
   },
   {
-    "file": "js/app.09bdb693.js",
-    "hash": "8256d655f8de6fe92f08abb781129949"
+    "file": "js/app.e5402160.js",
+    "hash": "6dd4cf217dd7c03934699765f8fb6653"
   },
   {
-    "file": "js/chunk-vendors.ccfce6c3.js",
-    "hash": "a756eaa89e485b4d58855bc2868ecddb"
+    "file": "js/chunk-2d0d711f.3f81872f.js",
+    "hash": "7dce89e1e9f6dfdfbcd10ca2f5d260ff"
+  },
+  {
+    "file": "js/chunk-2d20ede5.96798914.js",
+    "hash": "793e759295a215bb9706d920c12b4b96"
+  },
+  {
+    "file": "js/chunk-vendors.b0680533.js",
+    "hash": "54c628d7205270d261dad9b7aa5d4d53"
   }
 ]
