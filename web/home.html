@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<title>大渡口区图书馆</title>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/echarts.min.js"></script>
+	<script src="./js/macarons.js"></script>
+	<!-- <script src="./js/time.js"></script> -->
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+		}
+
+		.container {
+			width: 100%;
+			height: 100%;
+			background-color: #234374;
+			background-image: url(./img/bg3.png);
+			background-position: center bottom;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.headers {
+			background-color: rgb(0, 0, 0, 0.5);
+			min-height: 70px;
+			/* line-height: 70px; */
+			padding-left: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.headers .logo {
+			display: flex;
+			color: #fff;
+			font-size: 26px;
+			align-items: center;
+			letter-spacing: 10px;
+		}
+
+		.headers .logo h3 {
+			padding-left: 10px;
+			font-family: Microsoft YaHei;
+		}
+
+		#clock {
+			font-family: 'Share Tech Mono', monospace;
+			color: #ffffff;
+			text-align: center;
+			color: #daf6ff;
+			padding-right: 20px;
+			text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+		}
+
+		#clock .time {
+			letter-spacing: 0.05em;
+			font-size: 20px;
+			padding: 5px 0;
+		}
+
+		#clock .date {
+			letter-spacing: 0.1em;
+			font-size: 15px;
+		}
+
+		#clock .text {
+			letter-spacing: 0.1em;
+			font-size: 12px;
+			/* padding: 20px 0 0; */
+		}
+
+		.main {
+			height: -webkit-calc(100% - 70px);
+			height: -moz-calc(100% - 70px);
+			height: calc(100% - 70px);
+			display: flex;
+		}
+
+		.main .left {
+			height: 100%;
+			flex: 1;
+			position: relative;
+			color: #f0f0ef;
+		}
+
+		.main .left .a {
+			display: block;
+			height: 100%;
+			/* flex: 1; */
+			position: relative;
+		}
+
+		.left .abox {
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			margin-left: -180px;
+			margin-top: -40px;
+			min-width: 220px;
+		}
+
+		.left .bbox {
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			margin-left: -180px;
+			margin-top: -40px;
+			min-width: 220px;
+		}
+
+		.left .cbox {
+			position: absolute;
+			top: 65%;
+			left: 50%;
+			margin-left: -180px;
+			margin-top: -40px;
+			min-width: 220px;
+		}
+
+		.left p {
+			font-size: 50px;
+			font-weight: bold;
+			text-align: right;
+			margin-right: -40px;
+		}
+
+		.left p span {
+			font-size: 50px;
+			font-weight: bold;
+		}
+
+		.left .abox p {
+			color: #ff8901;
+		}
+
+		.left .bbox p {
+			color: #b32372;
+		}
+
+		.left .cbox p {
+			color: #f15b6c;
+		}
+
+		.left span {
+			font-size: 30px;
+		}
+
+		.main .right {
+			height: 100%;
+			flex: 1.5;
+		}
+
+		.main .dbox {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -35%;
+			margin-top: -220px;
+		}
+
+		.main1,
+		.main2 {
+			border: 1px #ccc solid;
+			border-radius: 6px;
+			padding: 1% 0;
+		}
+
+		.main1 {
+			margin-top: 1%;
+			margin-bottom: 1%;
+			background: linear-gradient(to bottom, #f9e5cc 20%, #fafffe 70%);
+			/*渐变从左上角到右下角*/
+			background: -ms-linear-gradient(to bottom, #f9e5cc 20%, #fafffe 70%);
+			background: -webkit-linear-gradient(to bottom, #f9e5cc 20%, #fafffe 70%);
+			background: -moz-linear-gradient(to bottom, #f9e5cc 20%, #fafffe 70%);
+		}
+
+		.main2 {
+			background: linear-gradient(to bottom, #efeff1, #2e4d79);
+			/*渐变从左上角到右下角*/
+			background: -ms-linear-gradient(to bottom, #efeff1, #2e4d79);
+			background: -webkit-linear-gradient(to bottom, #efeff1, #2e4d79);
+			background: -moz-linear-gradient(to bottom, #efeff1, #2e4d79);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="headers">
+			<div class="logo">
+				<img src="./img/logo.jpg" height="50" alt="">
+				<h3>大渡口区图书馆欢迎您！</h3>
+			</div>
+			<div id="clock">
+				<div class="time" id="time"></div>
+				<div class="text" id="date"></div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="left" id="con">
+				<em class="a">
+					<div class="abox">
+						<span>当前在馆人数：</span>
+						<p><span id="todayPeopleNum">0</span>人</p>
+					</div>
+					<div class="bbox">
+						<span>今日入馆人数：</span>
+						<p><span id="totalPeopleNum">0</span>人</p>
+					</div>
+					<div class="cbox">
+						<span>年度人数：</span>
+						<p><span id="yearPeopleNum">0</span>人</p>
+					</div>
+				</em>
+				<em class="a" style="display:none">
+					<div class="dbox">
+						<img style="width: 70%;" src="./img/pic2.png">
+					</div>
+				</em>
+			</div>
+			<div class="right">
+				<div class="main1" style="height:45%; width: 98%;">
+					<div id="main1" style="height:100%; width: 100%;"></div>
+				</div>
+				<div class="main2" style="height:45%; width: 98%;">
+					<div id="main2" style="height:100%; width: 100%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			getAjax()
+		});
+
+		// 指定图表的配置项和数据
+		function option1(chart, title, xdata, data1, data2) {
+			let option = {
+				title: {
+					text: title,
+					left: 'center'
+				},
+				tooltip: {
+					trigger: 'axis',
+				},
+				legend: {
+					data: ['昨天', '今天'],
+					top: '10%',
+				},
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: { // 坐标轴指示器，坐标轴触发有效
+						type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+					},
+				},
+				xAxis: [
+					{
+						type: 'category',
+						axisTick: {
+							alignWithLabel: true
+						},
+						data: xdata
+					}
+				],
+				yAxis: [
+					{
+						type: 'value',
+					},
+				],
+				grid: {
+					left: '3%',
+					right: '3%',
+					top: '20%',
+					bottom: '3%',
+					containLabel: true
+				},
+				series: [
+					{
+						name: '昨天',
+						type: 'bar',
+						barMaxWidth: 15,
+						data: data1
+					},
+					{
+						name: '今天',
+						type: 'bar',
+						barMaxWidth: 15,
+						data: data2
+					},
+				]
+			}
+			// 使用刚指定的配置项和数据显示图表。
+			chart.setOption(option)
+		}
+
+		function option2(chart, title, xdata, data) {
+			var option = {
+				color: ['#ffb980', '#c05050', '#59678c', '#c9ab00', ],
+				title: {
+					text: title,
+					color: '#000',
+					// subtext: '纯属虚构',
+					left: 'center'
+				},
+				tooltip: {
+					trigger: 'item',
+					// formatter: function (data) {
+					// 	//console.log(data)
+					// 	myChart.setOption({
+					// 		title: {
+					// 			text: '会员数量' + data.value,
+					// 		}
+					// 	});
+					// 	return data.name + '</br>' + '人数：' + data.value + '</br>占比：' + data.percent + '%' + '</br>';
+					// }
+				},
+				toolbox: {
+					show: true,
+					// feature: {
+					// 	mark: { show: true },
+					// 	dataView: { show: true, readOnly: false },
+					// 	restore: { show: true },
+					// 	saveAsImage: { show: true }
+					// }
+				},
+				legend: {
+					orient: 'horizontal', // 'vertical'
+					// icon: 'pie',
+					// orient: 'vertical',
+					// x: 'right',
+					y: 'bottom',
+					selectedMode: true,
+					data: xdata
+				},
+				series: [
+					{
+						// name: '姓名',
+						type: 'pie',
+						radius: '70%',
+						// center: ['40%', '50%'],
+						data: data,
+						emphasis: {
+							itemStyle: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.5)'
+							}
+						}
+					}
+				]
+			}
+			chart.setOption(option);
+		}
+
+		function getData() {
+			var data = [];
+			for (var i = 0; i < 11; i++) {
+				data.push(Math.round(Math.random() * (700 - 100) + 100));
+			};
+			return data;
+		}
+
+		function getAjax() {
+			var url = 'https://app.yaliangyun.com:2186'
+
+			var mylogin = {
+				type: 1,
+				beginTime: '2020-01-01 01',
+				endTime: '2020-01-18 12',
+				custCodes: 'G1000622',
+				pwayCodes: ''
+			}
+			// 基于准备好的dom，初始化echarts实例
+			var myChart1 = echarts.init(document.getElementById('main1'), 'macarons');
+			var myChart2 = echarts.init(document.getElementById('main2'), 'macarons');
+			$.ajax({
+				type: "GET",
+				url: url + "/api-passenger/_dataExport?type=" + mylogin.type + "&beginTime=" + mylogin.beginTime + "&endTime=" + mylogin.endTime + "&pwayCodes=" + mylogin.pwayCodes + "&custCodes=" + mylogin.custCodes,
+				dataType: "json",
+				success: function (data) {
+					if (data.code == 1) {
+						console.log(Math.random())
+						$("#todayPeopleNum").html(Math.round(Math.random() * (800 - 100) + 100));
+						$("#totalPeopleNum").html(Math.round(Math.random() * (500 - 100) + 100));
+						$("#yearPeopleNum").html(Math.round(Math.random() * (1200 - 100) + 100));
+						var dateText = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00']
+						var serive_data = [
+							{ value: Math.round(Math.random() * (500 - 100) + 100), name: 'A门' },
+							{ value: Math.round(Math.random() * (500 - 100) + 100), name: 'B门' },
+						]
+						option1(myChart1, '每日每时波峰矢量图：实时及历史对比图（30分钟）', dateText, getData(), getData())
+						option2(myChart2, '今日各门人数百分比图', ['A门', 'B门'], serive_data)
+					}
+				},
+				error: function (jqXHR) {
+					console.log("Error: " + jqXHR.status);
+				}
+			})
+		}
+
+		function G(e) { return document.getElementById(e); }
+		function myPlayer(con, child, speed) {
+			var ts = G(con).getElementsByTagName(child),//获取容器内需要轮流显示的子元素：这里是 div
+				timer, k = 0;
+			var timer = setInterval(function () {//定义时间控制器
+				for (var m = 0; m < ts.length; m++) { ts[m].style.display = 'none'; }//先隐藏全部，此处效率降低，可以考虑不用循环
+				ts[k].style.display = '';//显示需要显示的
+				if (k > ts.length - 2) {
+					k = 0;
+				} else {
+					k++;
+				}
+			}, speed);
+		}
+		myPlayer('con', 'em', 10000);//调用，参数一外层元素ID，参数二循环元素名称，间隔时间：秒数的1000倍
+
+		var freshenAjax = setInterval(getAjax, 30000);
+		var freshenTime = setInterval(updateTime, 1000);
+		
+		var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+		function updateTime() {
+			var cd = new Date();
+			let val1 = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
+			let val2 = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+			$("#time").html(val1)
+			$("#date").html(val2)
+		};
+		function zeroPadding(num, digit) {
+			var zero = '';
+			for (var i = 0; i < digit; i++) {
+				zero += '0';
+			}
+			return (zero + num).slice(-digit);
+		}
+	</script>
+</body>
+
+</html>
