@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0b91f7"],{3235:function(e,n,t){"use strict";t.r(n);var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("PageView",[t("SplitLayout",[t("h1",[e._v("This is an about page111")])])],1)},u=[],i=t("2877"),l={},s=Object(i["a"])(l,a,u,!1,null,null,null);n["default"]=s.exports}}]);
